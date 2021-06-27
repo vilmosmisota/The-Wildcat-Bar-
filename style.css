@@ -1,0 +1,397 @@
+:root {
+  /* Colours */
+  --blue: hsl(192, 94%, 6%);
+  --gold: #d1c1a5;
+  /* Fonts */
+  --primary-font: "Merriweather", serif;
+  --secondary-font: "Montserrat", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  background-color: var(--blue);
+  margin: 0 auto;
+  font-family: var(--primary-font);
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button,
+button:focus,
+button:active {
+  background-color: unset;
+  color: unset;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.grunge-effect {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("./assets/otis-redding.png");
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.header-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 1800px;
+  max-height: 1400px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px;
+}
+
+.background-img {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./images/header_img_smallmediumscreen.jpg");
+  height: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.logo-container {
+  position: absolute;
+  top: 56%;
+  width: 80vw;
+  max-width: 450px;
+  z-index: 5;
+
+  opacity: 0;
+  animation: logo 400ms ease-in 500ms;
+  animation-fill-mode: forwards;
+}
+
+.background-img::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: black;
+
+  transform: translateY(0);
+  animation: blue-curtain 800ms ease-out 1500ms;
+  animation-fill-mode: forwards;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 98vw;
+}
+
+.testimony-container-one,
+.testimony-container-two {
+  padding: 1.5rem;
+  color: var(--gold);
+  margin: 0 auto 100px auto;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimony-container-one h1,
+.testimony-container-two h1 {
+  padding: 0.5rem 0;
+  font-weight: 300;
+  line-height: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.testimony-header {
+  opacity: 0;
+  transition: all 250ms ease-in;
+}
+
+.active-testimony-header {
+  opacity: 1;
+}
+
+.testimony-img {
+  margin-top: 80px;
+  max-width: 500px;
+  opacity: 0;
+  transition: all 250ms ease-in;
+  overflow: hidden;
+}
+
+.active-img-wrapper {
+  opacity: 1;
+}
+
+.testimony-images {
+  transform: scale(1.1);
+  transition: all 500ms ease-in-out;
+}
+
+.active-img {
+  transform: scale(1);
+}
+
+.info-container {
+  width: 100vw;
+  max-width: 800px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-one,
+.info-two {
+  background-color: var(--gold);
+  border-radius: 15px;
+  height: 325px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.info {
+  /* opacity: 0; */
+  transform: scaleX(0);
+  transition: all 500ms ease-in;
+}
+
+.active-info {
+  /* opacity: 1; */
+  transform: scaleX(1);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
+.info-one h2,
+.info-two h2 {
+  text-align: center;
+  padding: 1rem;
+  font-family: var(--secondary-font);
+  text-transform: uppercase;
+}
+
+.opening-times {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+.times li {
+  font-weight: bold;
+}
+
+.info-one li {
+  text-decoration: none;
+  list-style: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+.logo-design {
+  display: none;
+}
+
+.outro-container {
+  max-width: 750px;
+  text-align: center;
+  margin: 0 auto 80px auto;
+}
+
+.outro-header {
+  max-width: 600px;
+  margin: -13% auto 0 auto;
+}
+
+.outro-header h1 {
+  font-family: var(--secondary-font);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: var(--gold);
+}
+
+.outro-hOne {
+  transition: all 500ms ease-in;
+  transform: scale(0);
+}
+
+.active-header {
+  transform: scale(1);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
+footer {
+  width: 100vw;
+  background-color: black;
+  color: var(--gold);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.footer-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-wrapper section {
+  padding: 1rem;
+}
+
+footer h3 {
+  font-family: var(--secondary-font);
+  text-transform: uppercase;
+  padding: 1rem;
+  font-weight: 300;
+}
+
+.copyright-container {
+  padding: 1.5rem 0 0.5rem 0;
+}
+
+.copyright-container p {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.fa-facebook-square,
+.fa-instagram-square {
+  font-size: 35px;
+  padding: 0.5rem;
+  transition: ease-in 0.2s;
+}
+
+.fa-facebook-square:hover,
+.fa-instagram-square:hover {
+  transform: scale(1.2);
+}
+
+@media (min-width: 950px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .background-img {
+    background-image: url("./images/header_img_largescreen.jpg");
+  }
+
+  .header-container {
+    margin-bottom: 200px;
+  }
+
+  .testimony-container-one,
+  .testimony-container-two {
+    margin: 0 auto 200px auto;
+  }
+
+  .testimony-container-one h1,
+  .testimony-container-two h1 {
+    font-size: 30px;
+    line-height: 2.9rem;
+    letter-spacing: 2px;
+  }
+
+  .info-container {
+    margin: 0 auto 150px auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-design {
+    display: block;
+    max-width: 300px;
+    opacity: 0.5;
+  }
+
+  .invert {
+    transform: scale(-1, 1);
+  }
+
+  .outro-container {
+    margin: 0 auto 150px auto;
+  }
+
+  .outro-header h1 {
+    font-size: 60px;
+  }
+}
+
+@keyframes filter-opacity {
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes blue-curtain {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes logo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
